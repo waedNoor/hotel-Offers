@@ -26,6 +26,7 @@ import javax.ejb.Startup;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
@@ -51,7 +52,7 @@ import common.Constants;
 //@Startup
 
 @ManagedBean
-@RequestScoped
+@ApplicationScoped
 public class singltonBean {
 	
 	private DestenationDO destenationDO;
