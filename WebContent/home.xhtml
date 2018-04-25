@@ -1,0 +1,29 @@
+<h:panelGroup layout="block" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+		
+	<p:panel style="width: 1000px;height:100px; margin: 0 auto;">
+	<h:graphicImage value="resources/images/expediaLogo.jpg" style=" width: 500px;height:100px; margin: 0 auto;"/>
+    </p:panel>
+    
+    
+  
+    
+    	<h:form style="width: 1000px; margin: 0 auto;">	
+			<p:tabView>
+        		<p:tab title="Home">
+        							<ui:include src="view.xhtml">
+                      	 <ui:param name="hotelList" value="#{mbOffers.defaultHotelList}" />
+                      </ui:include>
+                       		</p:tab>
+                <p:tab title="Search">
+                      <ui:include src="search.xhtml"></ui:include>
+  
+        		 </p:tab>
+        </p:tabView>
+		</h:form>
+  
+
+</h:panelGroup>

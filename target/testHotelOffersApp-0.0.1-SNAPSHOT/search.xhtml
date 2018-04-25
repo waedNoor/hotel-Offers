@@ -1,0 +1,75 @@
+<h:panelGroup layout="block"
+ xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:its="http://www.its.com/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+				<p:panel id="pnlSearch">
+					 <h:panelGrid  columns="4" layout="grid" width="500px,400px,500px,400px" style="font-size:12px;">
+				
+					<h:outputLabel  value="Destination"/>
+						  <h:inputText id="city_cc" value="#{mbOffers.city_cc}"></h:inputText>
+					
+					<h:outputLabel  value="length Of Stay"/>
+			    	   <h:inputText id="lengthOfStay_cc" value="#{mbOffers.lengthOfStay}" >
+			    	   
+			    	   </h:inputText>
+			
+					 <p:outputLabel for="startDate_cc" value="Start Date:" />
+				       	<p:calendar id="startDate_cc" value="#{mbOffers.startDate_cc}" >
+				       	 	<f:ajax event="dateSelect" render="endDate_cc"/>
+				       	    <f:ajax event="change" render="endDate_cc" />
+				       	 
+				       	
+			  		 </p:calendar>
+				       	
+				
+			    <p:outputLabel for="endDate_cc" value="End Date:"/>
+			       		 <p:calendar id="endDate_cc" value="#{mbOffers.endDate_cc}" mindate="#{mbOffers.startDate_cc}">
+			       		 	<f:ajax event="dateSelect" render="lengthOfStay_cc"/>
+				       	  	<f:ajax event="change" render="lengthOfStay_cc" />
+		  		 </p:calendar>
+			    
+
+				
+			<h:outputLabel  value="min. Star Rate"/>
+			
+			<p:selectOneMenu id="drpminStarRate_cc" value="#{mbOffers.minStarRate}">
+				 <f:selectItem itemLabel="select" noSelectionOption="true"/>
+				<f:selectItems value="#{mbOffers.starRate}" />
+	            <f:ajax  event="change" listener="#{mbOffers.loadMaxStarRate()}" process="@this"   update="drpmaxStarRate_cc"/>
+       		 </p:selectOneMenu>        
+			
+			
+			<h:outputLabel  value="Max. Star Rate"/>
+			<p:selectOneMenu id="drpmaxStarRate_cc" value="#{mbOffers.maxStarRate}">
+				<f:selectItem itemLabel="#{msg.get('select')}" noSelectionOption="true"/>
+ 				<f:selectItems value="#{mbOffers.starRate}" />
+       		 </p:selectOneMenu>        
+			
+			
+			<h:outputLabel  value="Min Guest Rating"/>
+			   <h:inputText id="minGuestRating_cc" value="#{mbOffers.minGuestRating}"/>
+			<h:outputLabel  value="Max Guest Rating"/>
+			   <h:inputText id="maxGuestRating_cc" value="#{mbOffers.maxGuestRating}"/>
+			
+			
+				<h:outputLabel  value="min Total Rate"/>
+			    	   <h:inputText id="minTotalRate_cc" value="#{mbOffers.minTotalRate}"/>
+			
+			
+				<h:outputLabel  value="max Total Rate"/>
+			    	   <h:inputText id="maxTotalRate_cc" value="#{mbOffers.maxTotalRate}"/>
+			    	   
+	    	   <h:commandButton value="Search" action="#{mbOffers.search}"></h:commandButton>
+	    	   </h:panelGrid>
+	    	   </p:panel>
+	    	   
+		<p:panel>
+		<ui:include src="view.xhtml">
+            <ui:param name="hotelList" value="#{mbOffers.hotelResults}" />
+        </ui:include>
+  </p:panel>
+		        
+</h:panelGroup>

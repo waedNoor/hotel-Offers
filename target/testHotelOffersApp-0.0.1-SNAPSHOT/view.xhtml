@@ -1,0 +1,48 @@
+<h:panelGroup layout="block" xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:its="http://www.its.com/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+		
+		<h:panelGrid  columns="1" layout="grid">
+		
+			
+			<h:dataTable value="#{hotelList}" var="hotel" >
+    			<h:column>
+						 
+							<h:outputLink value="#{hotel.hotelUrlsDO.hotelInfositeUrl}" >
+									<h:graphicImage value="#{hotel.hotelInfoDO.hotelImageUrl}" width="200px"  />
+							</h:outputLink>
+							
+							</h:column>
+							
+							
+							
+							<h:column>
+						<h:outputLabel value="#{hotel.hotelInfoDO.hotelName}" style="margin:10px;" /><br/> 
+						<a href="#{hotel.hotelUrlsDO.hotelInfositeUrl}" target="_blank">
+						<h:graphicImage value="resources/images/#{hotel.hotelInfoDO.hotelStarRating}.png" style="margin:10px;width:100px"/></a>
+		<br/>
+						
+						<h:outputLabel value="In #{hotel.destenationDO.nonLocalizedCity}, #{hotel.destenationDO.province}" style="margin:20px;font-size:12px;"/>
+						<br/>
+						<del><h:outputLabel value="#{hotel.hotelPricingInfoDO.totalPriceValue}#{hotel.hotelPricingInfoDO.currency}" style="margin:20px;font-size:16px;"/></del>
+						
+						<br/><h:outputLabel value="#{hotel.hotelPricingInfoDO.crossOutPriceValue}#{hotel.hotelPricingInfoDO.currency}" style="margin:30px;font-size:16px;"/>
+						
+					</h:column>
+
+					<h:column>
+							<h:outputLink value="#{hotel.hotelUrlsDO.hotelInfositeUrl}" >
+			
+						<h:outputLabel value="#{hotel.hotelInfoDO.hotelReviewTotal}review" style="margin:20px;font-size:12px;"/></h:outputLink><br/>
+							<h:outputLink value="#{hotel.hotelUrlsDO.hotelInfositeUrl}" >
+						
+						<h:outputLabel value="#{hotel.hotelInfoDO.hotelGuestReviewRating}review Guest" style="margin:20px;font-size:12px;"/></h:outputLink>
+					
+					</h:column>
+				</h:dataTable>	
+		</h:panelGrid>
+		
+</h:panelGroup>
+	
