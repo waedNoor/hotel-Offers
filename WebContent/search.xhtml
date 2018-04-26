@@ -38,13 +38,13 @@
 			<p:selectOneMenu id="drpminStarRate_cc" value="#{mbOffers.minStarRate}">
 				 <f:selectItem itemLabel="select" noSelectionOption="true"/>
 				<f:selectItems value="#{mbOffers.starRate}" />
-	            <f:ajax  event="change" listener="#{mbOffers.loadMaxStarRate()}" process="@this"   update="drpmaxStarRate_cc"/>
+	         <!--   <f:ajax  event="change" listener="#{mbOffers.loadMaxStarRate()}" process="@this"   update="drpmaxStarRate_cc"/>-->
        		 </p:selectOneMenu>        
 			
 			
 			<h:outputLabel  value="Max. Star Rate"/>
 			<p:selectOneMenu id="drpmaxStarRate_cc" value="#{mbOffers.maxStarRate}">
-				<f:selectItem itemLabel="#{msg.get('select')}" noSelectionOption="true"/>
+				<f:selectItem itemLabel="select" noSelectionOption="true"/>
  				<f:selectItems value="#{mbOffers.starRate}" />
        		 </p:selectOneMenu>        
 			
