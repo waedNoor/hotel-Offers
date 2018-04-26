@@ -36,8 +36,8 @@ public class HotelInfoHandler {
 		 Double starRating= Double.parseDouble(hotelInfoDO.getHotelStarRating());
 
 
-		  if(minStarRate!=null){
-			  if(maxStarRate!=null){
+		  if(minStarRate!=""){
+			  if(maxStarRate!=""){
 				  if(Integer.parseInt(minStarRate)<= starRating && Integer.parseInt(maxStarRate)>= starRating){
 					  return true;
 					  }
@@ -45,7 +45,7 @@ public class HotelInfoHandler {
 				  else if(Integer.parseInt(minStarRate)<= starRating){
 					  return true;
 				  }
-	  }else if(maxStarRate!=null){
+	  }else if(maxStarRate!=""){
 		  if(Integer.parseInt(maxStarRate)>= starRating){
 			  return true;
 			  }
@@ -54,8 +54,8 @@ public class HotelInfoHandler {
 	  }
 	  public static boolean checkGuestRating(HotelInfoDO hotelInfoDO,String minGuestRating, String maxGuestRating){
 		  Double guestRating= Double.parseDouble(hotelInfoDO.getHotelGuestReviewRating());
-		  if(minGuestRating!=null){
-			  if(maxGuestRating!=null){
+		  if(minGuestRating!=""){
+			  if(maxGuestRating!=""){
 				  if(Integer.parseInt(minGuestRating)<= guestRating && Integer.parseInt(maxGuestRating)>= guestRating){
 					  return true;
 				  }
@@ -63,7 +63,7 @@ public class HotelInfoHandler {
 			  else if(Integer.parseInt(minGuestRating)<= guestRating){
 				  return true;
 			  }
-		  }else if(maxGuestRating!=null){
+		  }else if(maxGuestRating!=""){
 			  if(Integer.parseInt(maxGuestRating)>= guestRating){
 				  return true;
 			  }
@@ -73,8 +73,8 @@ public class HotelInfoHandler {
 	  }
 	  public static boolean checkTotalRating(HotelInfoDO hotelInfoDO,String minTotalRate, String maxTotalRate){
 		  Double totalReview= Double.parseDouble(hotelInfoDO.getHotelReviewTotal());
-		  if(minTotalRate!=null){
-			  if(maxTotalRate!=null){
+		  if(minTotalRate!=""){
+			  if(maxTotalRate!=""){
 				  if(Integer.parseInt(minTotalRate)<= totalReview && Integer.parseInt(maxTotalRate)>= totalReview){
 					  return true;
 					  }
@@ -82,7 +82,7 @@ public class HotelInfoHandler {
 				  else if(Integer.parseInt(minTotalRate)<= totalReview){
 					  return true;
 				  }
-		  }  else if(maxTotalRate!=null){
+		  }  else if(maxTotalRate!=""){
 			  		if(Integer.parseInt(maxTotalRate)>= totalReview){
 			  			return true;
 			 }
